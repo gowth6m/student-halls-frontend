@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<path d="M481.435 331.304C491.623 325.647 508.144 325.647 518.337 331.304L785.809 469.703C795.997 475.36 806.429 670.166 796.236 675.825L518.337 841.975C508.148 847.632 491.628 847.635 481.435 841.975L231.268 680.435C221.079 674.778 221.008 480.444 231.197 474.785L481.435 331.304Z" id="Fill"/>
+</defs>
+<g id="Layer-2"/>
+<g id="Layer-5"/>
+<g id="Layer-4">
+<g opacity="1">
+<path d="M825.157 426.195L857.241 426.195L857.241 575.067L825.157 575.067L825.157 426.195Z" fill="#f56476" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.475482"/>
+<path d="M805.238 586.64C805.238 563.981 821.338 545.612 841.199 545.612C861.06 545.612 877.16 563.981 877.16 586.64C877.16 609.299 861.06 627.668 841.199 627.668C821.338 627.668 805.238 609.299 805.238 586.64Z" fill="#f56476" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.475482"/>
+<g opacity="1">
+<use fill="#ca8d7d" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.23318" xlink:href="#Fill"/>
+<clipPath clip-rule="nonzero" id="ClipPath">
+<use xlink:href="#Fill"/>
+</clipPath>
+<g clip-path="url(#ClipPath)">
+<path d="M316.333 600.802L419.841 653.284L420.649 801.159L316.339 734.026L316.333 600.802Z" fill="#f56476" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.23318"/>
+</g>
+</g>
+<path d="M495.7 181.551C504.701 176.524 519.296 176.524 528.301 181.551L918.295 399.348C927.297 404.375 927.3 412.526 918.295 417.555L528.301 635.351C519.3 640.378 504.705 640.38 495.7 635.351L105.704 417.555C96.7018 412.528 96.7018 404.377 105.704 399.348L495.7 181.551Z" fill="#f56476" fill-rule="nonzero" opacity="1" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.23318"/>
+</g>
+</g>
+</svg>
