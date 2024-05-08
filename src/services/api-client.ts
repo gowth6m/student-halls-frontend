@@ -3,10 +3,10 @@
 import axios from "axios";
 import { AppConfig } from "@/configs/app-config";
 import UserClient from "./clients/user-client";
+import UniversityClient from "./clients/university-client";
 
 const baseURL = `${AppConfig.endpoint.protocol}://${AppConfig.endpoint.base}/${AppConfig.endpoint.version}`;
 const localURL = `http://localhost:8080/${AppConfig.endpoint.version}`;
-
 const stage = AppConfig.stage as "local" | "dev" | "staging" | "production";
 
 const client = axios.create({
@@ -26,7 +26,8 @@ class ApiClient {
         }
     }
 
-    static auth = new UserClient(client, "/user");
+    static user = new UserClient(client);
+    static university = new UniversityClient(client);
 }
 
 export default ApiClient;

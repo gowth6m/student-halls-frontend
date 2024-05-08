@@ -60,7 +60,7 @@ const LoginDialog: React.FC<Props> = ({
      */
     const loginMutation = useMutation({
         mutationFn: async (form: { email: string; password: string }) => {
-            return ApiClient.auth.login(form);
+            return ApiClient.user.login(form);
         },
         onSuccess: (res) => {
             if (!res.data.data?.token) {

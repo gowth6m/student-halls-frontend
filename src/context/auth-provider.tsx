@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         queryKey: ["currentUser"],
         queryFn: () => {
             ApiClient.setAuthToken({ type: "Bearer", token: token });
-            return ApiClient.auth.current();
+            return ApiClient.user.current();
         },
         onSuccess: (res) => {
             setUser(res.data.data);

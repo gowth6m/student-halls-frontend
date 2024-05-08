@@ -39,11 +39,9 @@ export default function RootLayout({
             <body>
                 <Providers>
                     <CoreToast />
-                    <Container>
-                        <NavBar />
-                        <GlobalDialogs />
-                        {children}
-                    </Container>
+                    <NavBar />
+                    <GlobalDialogs />
+                    {children}
                 </Providers>
             </body>
         </html>

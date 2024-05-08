@@ -1,5 +1,6 @@
 import { User } from "@/types/user.type";
 import { AxiosInstance, AxiosResponse } from "axios";
+import { ApiResponse } from "../types/response.type";
 import { UserLoginResponse } from "../types/user-response-type";
 
 /**
@@ -18,22 +19,19 @@ import { UserLoginResponse } from "../types/user-response-type";
 export default class UserClient {
     private client: AxiosInstance;
 
-    constructor(client: AxiosInstance, baseURL?: string) {
+    constructor(client: AxiosInstance) {
         this.client = client;
-        if (baseURL) {
-            this.client.defaults.baseURL += baseURL;
-        }
     }
 
     async login(prop: { email: string, password: string }): Promise<AxiosResponse<ApiResponse<UserLoginResponse>>> {
-        return this.client.post("/login", prop);
+        return this.client.post("/user/login", prop);
     }
 
     async register(prop: { username: string, email: string, password: string, firstName: string, lastName: string, university: string, yearOfStudy: number }) {
-        return this.client.post("/create", prop);
+        return this.client.post("/user/create", prop);
     }
 
     async current(): Promise<AxiosResponse<ApiResponse<User>>> {
-        return this.client.get("/current");
+        return this.client.get("/user/current");
     }
 }

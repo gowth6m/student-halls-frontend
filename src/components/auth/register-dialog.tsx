@@ -5,7 +5,11 @@ import {
     Dialog,
     DialogContent,
     DialogProps,
+    FormControl,
     IconButton,
+    InputLabel,
+    MenuItem,
+    Select,
     TextField,
     Typography,
 } from "@mui/material";
@@ -14,7 +18,7 @@ import React, { useState } from "react";
 import CoreButton from "../core/core-button";
 import CoreLink from "../core/core-link";
 import { usePathname, useRouter } from "next/navigation";
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import ApiClient from "@/services/api-client";
 import { useAuth } from "@/context/auth-provider";
 import toast from "react-hot-toast";
@@ -35,6 +39,13 @@ const RegisterDialog: React.FC<Props> = ({
     const router = useRouter();
     const { setToken } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
+
+    const allUniversitiesQuery = useQuery({
+        queryKey: ["allUniversities"],
+        queryFn: async () => {
+            return ApiClient.university.allUniversities();
+        },
+    });
 
     /**
      * Formik form
@@ -83,7 +94,7 @@ const RegisterDialog: React.FC<Props> = ({
             university: string;
             yearOfStudy: number;
         }) => {
-            return ApiClient.auth.register(form);
+            return ApiClient.user.register(form);
         },
         onSuccess: (res) => {
             setToken(res.data.data?.token);
@@ -108,7 +119,9 @@ const RegisterDialog: React.FC<Props> = ({
             maxWidth="xs"
             {...otherProps}
         >
-            {registerMutation.isLoading && <LoadingTopbar />}
+            {(registerMutation.isLoading || allUniversitiesQuery.isLoading) && (
+                <LoadingTopbar />
+            )}
             <DialogContent>
                 <Box
                     component={"form"}
@@ -121,7 +134,7 @@ const RegisterDialog: React.FC<Props> = ({
                         padding: 2,
                     }}
                 >
-                    <Typography variant="h4">Login</Typography>
+                    <Typography variant="h4">Register</Typography>
 
                     <TextField
                         name={"email"}
@@ -206,12 +219,27 @@ const RegisterDialog: React.FC<Props> = ({
                         onChange={formik.handleChange}
                     />
 
-                    {/* <TextField
-                        name={"university"}
-                        label={"University"}
-                        value={formik.values.university}
-                        onChange={formik.handleChange}
-                    /> */}
+                    <FormControl>
+                        <InputLabel id="uni-select">University</InputLabel>
+                        <Select
+                            name={"university"}
+                            value={formik.values.university}
+                            onChange={formik.handleChange}
+                            labelId="uni-select"
+                            label="University"
+                            sx={{
+                                width: 300,
+                            }}
+                        >
+                            {allUniversitiesQuery.data?.data?.data?.map(
+                                (uni) => (
+                                    <MenuItem key={uni.id} value={uni.id}>
+                                        {uni.name}
+                                    </MenuItem>
+                                )
+                            )}
+                        </Select>
+                    </FormControl>
 
                     <CoreButton
                         buttonVariant="primary"

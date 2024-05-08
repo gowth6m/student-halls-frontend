@@ -23,7 +23,7 @@ function LoginPage() {
 
     const handleLogin = useMutation({
         mutationFn: async () => {
-            return ApiClient.auth.login(form);
+            return ApiClient.user.login(form);
         },
         onSuccess: (res) => {
             console.log("Login successful");
